@@ -379,7 +379,7 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
       replacementUuid: opts?.replacementUuid
     }
 
-    const request = JSON.stringify(this.prepareRelayRequest('eth_sendBundle', [params]))
+    const request = JSON.stringify(this.prepareRelayRequest('mev_sendBundle', [params]))
     const response = await this.request(request)
     if (response.error !== undefined && response.error !== null) {
       return {
@@ -1094,7 +1094,7 @@ export class FlashbotsBundleProvider extends providers.JsonRpcProvider {
     method:
       | 'eth_callBundle'
       | 'eth_cancelBundle'
-      | 'eth_sendBundle'
+      | 'mev_sendBundle'
       | 'eth_sendPrivateTransaction'
       | 'eth_cancelPrivateTransaction'
       | 'flashbots_getUserStats'
